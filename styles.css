@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+p {
+	float: none;
+	align-content: center;
+	-moz-background-size: auto;
+}*/
+#canvas {
+	float: left;
+	width: auto;
+	height: auto;
+	position: relative;
+	visibility: visible;
+	left: auto;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	overflow: auto;
+	margin: 30px;
+	clear: none;
+	padding: 0px;
+	border: thin solid #F00;
+	background-color: #00C;
+}
+.section {
+	float: none;
+	width: 1660px;
+	height: 260px;
+	visibility: visible;
+	background-color: #CCC;
+	margin: 10px;
+	padding: 5px;
+}
+body {
+	background-color: #009;
+}
