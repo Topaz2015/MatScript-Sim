@@ -7,59 +7,60 @@ script.onload = () => {
 };
 document.head.appendChild(script);
 
-var COLS = 90, ROWS = 16, startX = 4, startY = 4, w=8, s=9, mycolor = "PaleGoldenRod";
+var COLS = 120, ROWS = 16, startX = 4, startY = 4, w=8, s=9, mycolor = "PaleGoldenRod";
 var PIXS = COLS * ROWS, DELAY = 20, COLOR_ARRAY;
 var CHAR_SPACING=2, MSG_SPACING=64;
 var pixels, msgArray, timerId, output, screen, bgcolor = mycolor, fgcolor = "red";
 var msg = "WELCOME TO TOPAZ DIGITAL SOLUTIONS!!";
 var msg_pos=0, char_cols, char_row=0, char_col=0, test_count=0;
 
-function drawMatrix() {
 var myCanvas = document.getElementById('canvas');
-pixels = new Array(PIXS);
-msgArray = new Array(PIXS);
-// COLOR_ARRAY = new Array(20);
-COLOR_ARRAY = ["red", "orange", "darkred", "darksalmon","coral", "crimson", "maroon", "magenta","darkmagenta", "indianred","darkgoldenrod", "salmon","sienna", "tomato", "orangered", "gold", "brown", "chocolate"];
-COLOR_ARRAY2 = ["forestgreen", "cornflowerblue", "dodgerblue", "lime", "limegreen", "linen", "mediumblue", "turquoise","teal", "palegreen","steelblue", "springgreen","skyblue", "silver", "seagreen", "midnightblue", "royalblue", "indigo"];
-output = document.getElementById("output");
-screen = document.getElementById("screen");
-canvas = myCanvas.getContext('2d');
 
-for (var col = 0; col < COLS; col++){ 
-for (var row = 0; row < ROWS; row++){ 
-var el = new Array(3);
-el[0] = row;
-el[1] = col;
-el[2] = "red";
-pixels[col * ROWS + row] = el;
-canvas.fillStyle = mycolor;
-canvas.fillRect(col * s + startY, row * s + startX, w, w);
-}
-}
-// canvas.clearRect(52 * 10 + startY, 8 * 10 + startX, 8, 8);
-output.innerHTML = "<h3>Debug output appears here</h3>";
-screen.innerHTML = "<h3>Debug screen appears here</h3>";
-drawPixel(155);
-for(var i=0; i<PIXS; i++) msgArray[i] = 0;
-addSpace2MsgEnd();
-timerId = setInterval("scroller()", DELAY);
-}
-window.addEventListener("load", drawMatrix, false);
+function drawMatrix() {
+    pixels = new Array(PIXS);
+    msgArray = new Array(PIXS);
+    // COLOR_ARRAY = new Array(20);
+    COLOR_ARRAY = ["red", "orange", "darkred", "darksalmon","coral", "crimson", "maroon", "magenta","darkmagenta", "indianred","darkgoldenrod", "salmon","sienna", "tomato", "orangered", "gold", "brown", "chocolate"];
+    COLOR_ARRAY2 = ["forestgreen", "cornflowerblue", "dodgerblue", "lime", "limegreen", "linen", "mediumblue", "turquoise","teal", "palegreen","steelblue", "springgreen","skyblue", "silver", "seagreen", "midnightblue", "royalblue", "indigo"];
+    output = document.getElementById("output");
+    screen = document.getElementById("screen");
+    canvas = myCanvas.getContext('2d');
+
+        for (var col = 0; col < COLS; col++){ 
+            for (var row = 0; row < ROWS; row++){ 
+            var el = new Array(3);
+            el[0] = row;
+            el[1] = col;
+            el[2] = "red";
+            pixels[col * ROWS + row] = el;
+            canvas.fillStyle = mycolor;
+            canvas.fillRect(col * s + startY, row * s + startX, w, w);
+            }
+        }
+    // canvas.clearRect(52 * 10 + startY, 8 * 10 + startX, 8, 8);
+    output.innerHTML = "<h3>Debug output appears here</h3>";
+    screen.innerHTML = "<h3>Debug screen appears here</h3>";
+    drawPixel(155);
+    for(var i=0; i<PIXS; i++) msgArray[i] = 0;
+    addSpace2MsgEnd();
+    timerId = setInterval("scroller()", DELAY);
+    }
+    window.addEventListener("load", drawMatrix, false);
 
 
 function drawPixel(pos){
-var p = new Array(3);
-var myCanvas = document.getElementById('canvas');
-canvas = myCanvas.getContext('2d');
-p = pixels[pos];
-var row = p[0];
-var col = p[1];
-var color = p[2];
-// alert(" out of "+pixels.length);
-// canvas.clearRect(col * 10 + startY, row * 10 + startX, 8, 8);
-canvas.fillStyle = color;
-canvas.fillRect(col * s + startY, row * s + startX, w, w);
-// alert("row="+row+"; col="+col+"; out of "+pixels.length);
+    var p = new Array(3);
+    // var myCanvas = document.getElementById('canvas');
+    canvas = myCanvas.getContext('2d');
+    p = pixels[pos];
+    var row = p[0];
+    var col = p[1];
+    var color = p[2];
+    // alert(" out of "+pixels.length);
+    // canvas.clearRect(col * 10 + startY, row * 10 + startX, 8, 8);
+    canvas.fillStyle = color;
+    canvas.fillRect(col * s + startY, row * s + startX, w, w);
+    // alert("row="+row+"; col="+col+"; out of "+pixels.length);
 }
 
 function scroller(){
@@ -200,3 +201,9 @@ var add = (COLS/cs) - sz;
 for(var i = 0; i < add; i++) msg += ' ';
 }
 
+// Function to resize canvas
+function resizeCanvas() {
+    myCanvas.width = window.innerWidth-200*(window.innerWidth/1080);
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
