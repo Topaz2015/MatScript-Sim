@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+      <style>
+        * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+        }
+
+        body { padding: 60px 5%;background-color:PaleGoldenRod; border:3px solid orange;border-radius: 5px}
+        form header { margin: 0 0 20px 0; }
+        form header div {font-size: 90%; color: #999;}
+        form header h2 {margin: 0 0 5px 0; color: #fff;}
+        h3 {font-size: 90%; color: #f00;}
+        
+        form > div {clear: both;overflow: hidden;padding: 1px;margin: 0 0 10px 0; border:1px solid green;border-radius: 3px}
+        div > h5 {clear: both;overflow: hidden;padding: 1px; float: right; margin: 0 0 10px 0;}
+        
+        form > div > div > input {clear: both;overflow: hidden;padding: 1px;margin: 0 0 10px 0; display: table; margin: auto; font-size: 20px; background-color: #4CAF50; color: white; font-weight: bold; padding: 5px 15px; border:3px solid orange;border-radius: 5px}
+        
+        form > div > fieldset > div > div {margin: 0 0 5px 0;}
+        form > div > label, h4 {margin: 0 0 5px 0; color: #fff;}
+        form > div > div,form > div > fieldset > div {width: 75%;float: right;}
+        form > div > fieldset label {font-size: 90%;}
+
+        @media (max-width: 600px) {
+            form > div {margin: 0 0 15px 0;}
+            form > div > label,legend {width: 100%;float: none;margin: 0 0 5px 0;}
+            form > div > div,form > div > fieldset > div {width: 100%;float: none;}
+            input[type=text],input[type=email],input[type=url],input[type=password],
+            textarea,select {width: 100%;}
+        }
+        @media (min-width: 1200px) {
+          form > div > label,legend {text-align: right;}
+        }
+    </style>
+
+
+
+ <title>MatScript-Sim</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+
+
+
+<body>
+ <form action=\"#\"> <header> <h2>MATSCRIPT SIM - LED DOT MATRIX SIMULATOR</h2> </header>
+
+  <div>
+    <h4>This is still a work in progress...</h4>
+	</div>        
+    
+
+        
+<div>
+  <canvas height="152" width="816" id="canvas" name="canvas">
+    hopefully you dont see this
+  </canvas>
+   </div>
+
+
+  <div>
+    <label class="desc" id="title106" for="Field106">
+      Powered by:
+    </label>
+    <div>
+          <h4>Topaz Digital Solutions.</h4>
+    </div>
+   </div>
+     <div id="output"></div>
+     <div id="screen"></div>
+</form> 
+
+    
+
+</body>
+ <script type="text/javascript" src="matrix.js"></script>
+</html>
